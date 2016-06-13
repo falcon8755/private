@@ -1,0 +1,29 @@
+<div class="btn-group">
+  <input class = "search" type="search" ng-model="searchText" />
+	<button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+		일괄선택
+		<span class="caret"></span>
+	</button>
+	<ul class="dropdown-menu alert-groupselect-menu">
+		<li class="list-title" ng-hide="vm.searchLevels.length===0"><span>경보등급</span></li>
+		<li class="sub-item">
+			<ul class="sub-list">
+				<li ng-repeat="level in vm.searchLevels" ng-class="{'active': level.checked}">
+					<a href="javascript:void(0);">
+						<label><input type="checkbox" ng-model="level.checked" ng-change="vm.onChange()" /> {{level.displayName}}</label>
+					</a>
+				</li>
+			</ul>
+		</li>
+		<li class="list-title" ng-hide="vm.searchStatuses.length===0"><span>경보상태</span></li>
+		<li class="sub-item">
+			<ul class="sub-list">
+				<li ng-repeat="status in vm.searchStatuses" ng-class="{'active': status.checked}">
+					<a href="javascript:void(0);">
+						<label><input type="checkbox" ng-model="status.checked" ng-change="vm.onChange()" /> {{status.displayName}}</label>
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>
